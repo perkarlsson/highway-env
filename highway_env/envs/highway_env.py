@@ -75,8 +75,6 @@ class HighwayEnv(AbstractEnv):
                     other_vehicles_type.create_random(self.road, spacing=1 / self.config["vehicles_density"])
                 )
 
-    Modifications to original reward function to allow lane_change_reward
-
     def _reward(self, action: Action) -> float:
             """
             The reward is defined to foster driving at high speed, on the rightmost lanes, and to avoid collisions.
