@@ -87,8 +87,8 @@ class HighwayEnv(AbstractEnv):
             scaled_speed = utils.lmap(self.vehicle.speed, self.config["reward_speed_range"], [0, 1])
             # from roundabout and merge examples
             lane_change = action == 0 or action == 2
+            # note added line in the reward section below for lane_change
             reward = \
-                # from roundabout and merge examples
                 self.config["lane_change_reward"] * lane_change \
                 + self.config["collision_reward"] * self.vehicle.crashed \
                 + self.config["right_lane_reward"] * lane / max(len(neighbours) - 1, 1) \
